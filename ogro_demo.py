@@ -4,7 +4,6 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
 import os
 import tempfile
-from dotenv import load_dotenv
 # --- IMPORTS ---
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -13,8 +12,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
-# Load API Key
-load_dotenv()
+# Set API Key from Streamlit Secrets
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 # --- CONFIGURATION ---
 st.set_page_config(page_title="OGRO SOP Oracle", page_icon="🧠")
 st.title("🧠 OGRO: The Company Brain")
