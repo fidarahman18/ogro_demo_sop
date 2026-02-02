@@ -3,6 +3,7 @@ langchain
 langchain-community
 langchain-openai
 langchain-core
+langchain-chains
 chromadb
 pypdf
 python-dotenv
